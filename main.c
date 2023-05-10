@@ -13,18 +13,22 @@ struct CwebHttpResponse *main_sever(struct CwebHttpRequest *request ){
             char *num1 = request->get_param(request,"num1");
             char *num2 = request->get_param(request,"num2");
             char *operator = request->get_param(request,"operator");
-            printf("-----------------------------\n");
-            printf("num1 : %s\n",num1);
-            printf("num2 : %s\n",num2);
-            printf("operator : %s\n",operator);
-    }
+            char *result="THG";
+            struct CTextStack *stack = render_interface(result);
 
-    struct CTextStack *stack = render_interface();
-
-    cweb_send_rendered_CTextStack_cleaning_memory(
+        return cweb_send_rendered_CTextStack_cleaning_memory(
                 stack,
                 200
             );
 }
 
-CWEB_START_MACRO(5000, main_sever)
+
+    struct CTextStack *stack = render_interface(NULL);
+
+        return cweb_send_rendered_CTextStack_cleaning_memory(
+                stack,
+                200
+            );
+}
+
+CWEB_START_MACRO(5006, main_sever)
