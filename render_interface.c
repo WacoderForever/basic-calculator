@@ -11,9 +11,14 @@ struct CTextStack * render_interface(char *result){
 
     s->$open(s,HTML,"lang=\"en\"");
         s->open(s,HEAD);
+            s->auto$close(s,LINK,R"(rel="stylesheet" href="style.css")");
         s->close(s,HEAD);
         s->open(s,BODY);
 
+           s->$open(s,DIV,R"(class="center")");
+                s->open(s,H3);
+                    s->segment_text(s,"My First Calculator");
+                s->close(s,H3);
                 s->$open(s,FORM,R"(action="/calculate" method="POST" )");
                     s->auto$close(s,INPUT,R"( name="num1" placeholder='num1' )");
                     s->auto$close(s,BR,"");
@@ -28,9 +33,10 @@ struct CTextStack * render_interface(char *result){
 
         if(result!=NULL){
             s->open(s,H3);
-            s->segment_text(s,result);
+                s->segment_text(s,result);
             s->close(s,H3);
         }
+        s->close(s,DIV);
         s->close(s,BODY);
     s->close(s,HTML);
     return s;
