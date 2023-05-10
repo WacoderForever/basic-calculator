@@ -13,11 +13,7 @@ struct CTextStack * render_interface(char *result){
         s->open(s,HEAD);
         s->close(s,HEAD);
         s->open(s,BODY);
-        if(result!=NULL){
-            s->open(s,H3);
-            s->segment_text(s,result);
-            s->close(s,H3);
-        }
+
                 s->$open(s,FORM,R"(action="/calculate" method="POST" )");
                     s->auto$close(s,INPUT,R"( name="num1" placeholder='num1' )");
                     s->auto$close(s,BR,"");
@@ -29,6 +25,12 @@ struct CTextStack * render_interface(char *result){
                     create_button(s,"/");
 
                 s->close(s,FORM);
+
+        if(result!=NULL){
+            s->open(s,H3);
+            s->segment_text(s,result);
+            s->close(s,H3);
+        }
         s->close(s,BODY);
     s->close(s,HTML);
     return s;
