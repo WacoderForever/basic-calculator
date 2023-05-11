@@ -49,15 +49,13 @@ struct CwebHttpResponse *main_sever(struct CwebHttpRequest *request ){
         return cweb_send_file("favicon.png","image/x-icon", 200);
     }
 
-    //means that the button were cliced
+    //means that the button were clicked
     if(strcmp(route,"/calculate") == 0){
         struct CwebHttpResponse * response =calculation_page(request);
         if(response){
             return response;
         }
     }
-
-
     struct CTextStack *stack = render_interface(NULL);
 
         return cweb_send_rendered_CTextStack_cleaning_memory(
@@ -65,5 +63,5 @@ struct CwebHttpResponse *main_sever(struct CwebHttpRequest *request ){
                 200
             );
 }
-
-CWEB_START_MACRO(5008, main_sever)
+            
+CWEB_START_MACRO(5009,main_sever)
