@@ -1,5 +1,5 @@
 
-
+#include <math.h>
 struct CwebHttpResponse * trigonometric_calculate_route(struct CwebHttpRequest *request){
 
 
@@ -11,16 +11,16 @@ struct CwebHttpResponse * trigonometric_calculate_route(struct CwebHttpRequest *
     //transform num2 to int;
 
     //transform result to int
-    float result_float;
+    double result_float;
 
     if(strcmp(operator,"SIN")== 0){
-        result_float = 1 + angle_float;
+        result_float = sin (angle_float);
     }
     if(strcmp(operator,"COS")== 0){
-        result_float = 2 + angle_float;
+        result_float = cos(angle_float);
     }
     if(strcmp(operator,"TAN")== 0){
-        result_float = 3 + angle_float;
+        result_float = tan (angle_float);
     }
 
     char result[30];
