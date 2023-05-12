@@ -1,0 +1,5 @@
+- repository: MySite/
+  before:
+      - gcc main.c 
+  comands:  
+      - ./a.out
