@@ -24,8 +24,7 @@ struct CwebHttpResponse *main_sever(struct CwebHttpRequest *request ){
     else if(strcmp(route,"/trigonometric_calculate") == 0){
         return trigonometric_calculate_route(request);
     }
-
-
+    
     else if(strcmp(route,"/basic_calculate") == 0){
         return basic_calculate_route(request);
     }
