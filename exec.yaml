@@ -1,4 +1,4 @@
-- repository: MySite/
+- repository: .
   before:
       - gcc main.c 
   comands:  
