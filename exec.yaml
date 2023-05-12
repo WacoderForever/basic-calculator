@@ -1,5 +1,5 @@
 - repository: .
   before:
-      - gcc main.c 
+      -  gcc prod.c -o prod.out
   comands:  
-      - ./a.out
+      -  ./prod.out
