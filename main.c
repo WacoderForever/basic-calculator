@@ -1,61 +1,39 @@
 
+
 #include "dependencies/CWebStudio.h"
-#include "render_interface.c"
+#include "interface/general.c"
+#include "interface/render_basic_calculator.c"
+#include "interface/render_trigonometric_calculator.c"
+#include "routes/basic_route.c"
+#include "routes/basic_calculate_route.c"
+#include "routes/trigonometric_route.c"
+#include "routes/trigonometric_calculate_route.c"
 
 
-struct CwebHttpResponse * calculation_page(struct CwebHttpRequest *request){
-        char *num1 = request->get_param(request,"num1");
-        char *num2 = request->get_param(request,"num2");
-        char *operator = request->get_param(request,"operator");
-
-        if(num1 == NULL || num2 == NULL || operator == NULL){
-            return NULL;
-        }
-        //transform num1 to int
-        float num1_float=atof(num1);
-        //transform num2 to int;
-        float num2_float=atof(num2);
-        //transform result to int
-        float result_float;
-
-        if(strcmp(operator,"+")== 0){
-            result_float = num1_float + num2_float;
-        }
-        if(strcmp(operator,"-")== 0){
-            result_float = num1_float - num2_float;
-        }
-        if(strcmp(operator,"x")== 0){
-            result_float = num1_float * num2_float;
-        }
-        if(strcmp(operator,"/")== 0){
-            result_float = num1_float / num2_float;
-        }
-        char result[30];
-        sprintf(result,"The Result is:<br>%f",result_float);
-        struct CTextStack *stack = render_interface(result);
-        return cweb_send_rendered_CTextStack_cleaning_memory(
-                stack,
-                200
-        );
-}
 struct CwebHttpResponse *main_sever(struct CwebHttpRequest *request ){
 
+    request->read_content(request,2000);
     char *route = request->route;
 
-
     //means that the button were clicked
-    if(strcmp(route,"/calculate") == 0){
-        struct CwebHttpResponse * response =calculation_page(request);
-        if(response){
-            return response;
-        }
-    }
-    struct CTextStack *stack = render_interface(NULL);
 
-        return cweb_send_rendered_CTextStack_cleaning_memory(
-                stack,
-                200
-            );
+    if(strcmp(route,"/trigonometric") == 0){
+        return trigonometric_route(request);
+    }
+
+    else if(strcmp(route,"/trigonometric_calculate") == 0){
+        return trigonometric_calculate_route(request);
+    }
+
+
+    else if(strcmp(route,"/basic_calculate") == 0){
+        return basic_calculate_route(request);
+    }
+
+    else{
+        return basic_route(request);
+    }
+
 }
             
 int main(){
