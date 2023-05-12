@@ -11,7 +11,7 @@ struct CTextStack * render_interface(char *result){
 
     s->$open(s,HTML,"lang=\"en\"");
         s->open(s,HEAD);
-            s->auto$close(s,LINK,R"(rel="stylesheet" href="style.css")");
+            s->auto$close(s,LINK,R"(rel="stylesheet" href="/static/style.css")");
             s->open(s,TITLE);
                 s->segment_text(s,"My First Calculator");   
             s->close(s,TITLE);

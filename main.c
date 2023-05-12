@@ -42,12 +42,6 @@ struct CwebHttpResponse *main_sever(struct CwebHttpRequest *request ){
 
     char *route = request->route;
 
-    if(strcmp(route,"/style.css") ==0){
-        return cweb_send_file("style.css",CWEB_AUTO_SET_CONTENT, 200);
-    }
-    if(strcmp(route,"/favicon.ico")== 0){
-        return cweb_send_file("favicon.png","image/x-icon", 200);
-    }
 
     //means that the button were clicked
     if(strcmp(route,"/calculate") == 0){
@@ -64,4 +58,11 @@ struct CwebHttpResponse *main_sever(struct CwebHttpRequest *request ){
             );
 }
             
-CWEB_START_MACRO(5009,main_sever)
+int main(){
+
+    for(int i=3000;i< 4000;i++){
+            cweb_run_server(i,main_sever,CWEB_DEFAULT_TIMEOUT,CWEB_SAFTY_MODE);
+    }
+ 
+    return 0;
+}
