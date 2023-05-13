@@ -14,6 +14,7 @@ struct CTextStack * render_trigonometric_calculator(char *result){
         s->close(s,HEAD);
         s->open(s,BODY);
             create_link(s,"Basic Calculator","/basic");
+            s->auto$close(s,BR,"");
             create_link(s,"Square/Square root","/sq");
            s->$open(s,DIV,R"(class="center")");
                 s->open(s,H3);

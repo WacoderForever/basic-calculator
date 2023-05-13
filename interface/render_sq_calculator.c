@@ -13,6 +13,7 @@ struct CTextStack * render_sq_calculator(char *result){
         s->close(s,HEAD);
         s->open(s,BODY);
         create_link(s,"Trigonometric","/trigonometric");
+        s->auto$close(s,BR,"");
         create_link(s,"Basic Calculator","/basic");
            s->$open(s,DIV,R"(class="center")");
                 s->open(s,H3);
