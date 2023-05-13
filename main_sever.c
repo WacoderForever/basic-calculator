@@ -27,10 +27,10 @@ struct CwebHttpResponse *main_sever(struct CwebHttpRequest *request ){
     else if(strcmp(route,"/trigonometric_calculate") == 0){
         return trigonometric_calculate_route(request);
     }
-    else if(strcmp(route,"/sq")){
+    else if(strcmp(route,"/sq") == 0){
         return sq_route(request);
     }
-    else if(strcmp(route,"/sq_calculate")){
+    else if(strcmp(route,"/sq_calculate") == 0){
         return sq_calculate_route(request);
     }
     
