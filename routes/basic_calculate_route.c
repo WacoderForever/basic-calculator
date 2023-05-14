@@ -1,13 +1,20 @@
 
 
 struct CwebHttpResponse * basic_calculate_route(struct CwebHttpRequest *request){
+  
+ 
     char *num1 = request->get_param(request,"num1");
     char *num2 = request->get_param(request,"num2");
     char *operator = request->get_param(request,"operator");
 
     if(num1 == NULL || num2 == NULL || operator == NULL){
-        return NULL;
+        struct CTextStack *stack = render_basic_calculator(NULL);
+        return cweb_send_rendered_CTextStack_cleaning_memory(
+                stack,
+                200
+        );
     }
+
     //transform num1 to int
     float num1_float=atof(num1);
     //transform num2 to int;
