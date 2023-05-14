@@ -5463,9 +5463,6 @@ void cweb_run_server(
     //limpando lixo de memoria
     actual_request = 0;
 
-    fflush(stdout);
-    fflush(stderr);
-
 
     int server_fd, new_socket;
     struct sockaddr_in address = {0};
@@ -5511,8 +5508,8 @@ void cweb_run_server(
 
     
     struct timeval timer;
-    timer.tv_sec = 0;  // tempo em segundos
-    timer.tv_usec = 100;  //
+    timer.tv_sec = 1;  // tempo em segundos
+    timer.tv_usec = 0;  //
 
 
     printf("Sever is running on port:%d\n", port);
