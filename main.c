@@ -6,8 +6,10 @@ int main(){
     
 
         for(int i=3000;i< 4000;i++){
-            cweb_run_server(i,main_sever,CWEB_DEFAULT_TIMEOUT,CWEB_SAFTY_MODE);
-    }
+                struct CwebSever *sever = newCwebSever(i, main_sever);
+                sever->start(sever);
+                sever->free(sever);
+         }
  
  
     return 0;

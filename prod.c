@@ -1,9 +1,8 @@
 #include "main_sever.c"
 
 int main(){
-
- 
-    cweb_run_server(80,main_sever,CWEB_DEFAULT_TIMEOUT,CWEB_SAFTY_MODE);
- 
+     struct CwebSever *sever = newCwebSever(80, main_sever);
+     sever->start(sever);
+     sever->free(sever);
     return 0;
 }
