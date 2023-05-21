@@ -5,7 +5,9 @@ struct CTextStack * render_sq_calculator(char *result){
 
     s->$open(s,HTML,"lang=\"en\"");
         s->open(s,HEAD);
-            s->auto$close(s,LINK,R"(rel="stylesheet" href="/static/style2.css")");
+
+            create_basic_enntrys(s);
+
             s->open(s,TITLE);
                 s->segment_text(s,"Square/Square root");
             s->close(s,TITLE);

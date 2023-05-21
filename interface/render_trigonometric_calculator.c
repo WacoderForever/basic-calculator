@@ -6,11 +6,9 @@ struct CTextStack * render_trigonometric_calculator(char *result){
 
     s->$open(s,HTML,"lang=\"en\"");
         s->open(s,HEAD);
-            s->auto$close(s,LINK,R"(rel="stylesheet" href="/static/style.css")");
-            s->open(s,TITLE);
-                s->segment_text(s,"Trigonometric Area");
-            s->close(s,TITLE);
+                       create_basic_enntrys(s);
 
+                       
         s->close(s,HEAD);
         s->open(s,BODY);
             create_link(s,"Basic Calculator","/basic");

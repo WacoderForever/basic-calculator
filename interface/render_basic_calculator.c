@@ -5,7 +5,7 @@ struct CTextStack * render_basic_calculator(char *result){
 
     s->$open(s,HTML,"lang=\"en\"");
         s->open(s,HEAD);
-            s->auto$close(s,LINK,R"(rel="stylesheet" href="/static/style.css")");
+            create_basic_enntrys(s);
             s->open(s,TITLE);
                 s->segment_text(s,"Basic Calculator");
             s->close(s,TITLE);
