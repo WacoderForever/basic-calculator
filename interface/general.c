@@ -9,6 +9,7 @@ void create_button(struct CTextStack *s,const char *name){
     s->segment_text(s,name);
     s->close(s,BUTTON);
 }
+
 void create_link(struct CTextStack *s,const char *name, const char *link){
     s->$open(s,A,R"(href="%s")",link);
         s->$open(s,BUTTON,R"(class="link_button")");
@@ -16,6 +17,7 @@ void create_link(struct CTextStack *s,const char *name, const char *link){
         s->close(s,BUTTON);
     s->close(s,A);
 }
+
 void create_basic_enntrys(struct CTextStack *s){
             char *fav_icon_link = smart_static_ref("favicon.png");
                 s->auto$close(s,LINK,"rel=\"shortcut icon\" href=\"%s\"",fav_icon_link);
