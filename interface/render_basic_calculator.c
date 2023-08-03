@@ -15,6 +15,7 @@ struct CTextStack * render_basic_calculator(char *result){
         create_link(s,"Trigonometric","/trigonometric");
         s->auto$close(s,BR,"");
         create_link(s,"Square/Square root","/sq");
+        s->auto$close(s,BR,"");
            s->$open(s,DIV,R"(class="center")");
                 s->open(s,H3);
                     s->segment_text(s,"Basic Calculator");
