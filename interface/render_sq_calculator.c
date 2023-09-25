@@ -29,7 +29,8 @@ struct CTextStack * render_sq_calculator(char *result){
 
                         create_button(s,"Square");
                         s->auto$close(s,BR,"");
-                        create_button(s,"Square root");
+                        create_button(s,"Square_root");
+                        s->auto$close(s,BR,"");
                 s->close(s,FORM);
 
         if(result!=NULL){

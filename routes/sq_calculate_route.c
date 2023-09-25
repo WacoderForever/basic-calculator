@@ -1,3 +1,4 @@
+
 struct CwebHttpResponse *sq_calculate_route(struct CwebHttpRequest *request){
     char *number= request -> get_param(request,"number");
     char *operator= request -> get_param(request,"operator");
@@ -11,8 +12,8 @@ struct CwebHttpResponse *sq_calculate_route(struct CwebHttpRequest *request){
     if(strcmp(operator,"Square")==0){
         result=number_float*number_float;
     }
-    if(strcmp(operator,"Square root")==0){
-        result=number_float;
+    if(strcmp(operator,"Square_root")==0){
+        result=sqrt(number_float);
     }
     char result1[30];
     sprintf(result1,"The result is <br>%f",result);
